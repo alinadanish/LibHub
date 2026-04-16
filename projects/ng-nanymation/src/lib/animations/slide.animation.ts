@@ -17,8 +17,8 @@ export function slideInAnimation(
     return [
         style({ opacity: 0, transform: SLIDE_OFFSET[direction] }),
         animate(
-        `${config.duration}ms ${config.delay}ms ${config.easing}`,
-        style({ opacity: 1, transform: 'translate(0, 0)' }),
+            `${config.duration}ms ${config.delay}ms ${config.easing}`,
+            style({ opacity: 1, transform: 'translate(0, 0)' }),
         ),
     ];
 }
@@ -30,8 +30,8 @@ export function slideOutAnimation(
     return [
         style({ opacity: 1, transform: 'translate(0, 0)' }),
         animate(
-        `${config.duration}ms ${config.delay}ms ${config.easing}`,
-        style({ opacity: 0, transform: SLIDE_OFFSET[direction] }),
+            `${config.duration}ms ${config.delay}ms ${config.easing}`,
+            style({ opacity: 0, transform: SLIDE_OFFSET[direction] }),
         ),
     ];
 }

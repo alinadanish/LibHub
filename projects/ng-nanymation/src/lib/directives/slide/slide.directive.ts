@@ -14,6 +14,7 @@ export class SlideDirective extends BaseAnimationDirective {
     /** Direction the element slides OUT to. Default: 'down' */
     @Input() leaveTo: SlideDirection   = 'down';
 
+    /// Whether the element is visible (i.e. should be in the "enter" or "leave" state). Default: true
     @Input('ngNanySlideVisible') override visible = true;
 
     protected getEnterSteps(): AnimationMetadata[] {

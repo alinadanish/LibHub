@@ -1,1 +1,104 @@
-/* You can add global styles to this file, and also import other style files */
+/* ── Mystical Forest Theme Variables ─────────────────────────────────── */
+:root {
+  --mf-bg:            #0A1A0E;   /* deep forest floor — almost black       */
+  --mf-surface:       #0F2414;   /* dark moss surface                      */
+  --mf-surface-2:     #143019;   /* deeper moss                            */
+  --mf-surface-3:     #183D1E;   /* forest undergrowth                     */
+  --mf-surface-4:     #1C4A24;   /* dense canopy shadow                    */
+  --mf-border:        #2D7A3A;   /* forest green border                    */
+  --mf-border-light:  #1A4020;   /* subtle dark border                     */
+  --mf-primary:       #52D973;   /* bioluminescent glow — main accent      */
+  --mf-primary-hover: #3DC45E;   /* darker glow on hover                   */
+  --mf-nav:           #060E08;   /* dark bark — almost black               */
+  --mf-text:          #B8EEC0;   /* pale moonlit leaves                    */
+  --mf-text-muted:    #5A8E62;   /* muted forest green                     */
+  --mf-shadow:        rgba(0, 60, 20, 0.5);
+  --mf-glow:          rgba(82, 217, 115, 0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--mf-bg);
+  color: var(--mf-text);
+}
+
+/* ── Shared demo page layout ─────────────────────────────────────────── */
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 32px;
+}
+
+.page h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--mf-text);
+  margin-bottom: 6px;
+}
+
+.page .subtitle {
+  font-size: 14px;
+  color: var(--mf-text-muted);
+  margin-bottom: 32px;
+}
+
+/* ── Shared demo box ─────────────────────────────────────────────────── */
+.box {
+  padding: 20px 24px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--mf-border-light);
+  color: var(--mf-text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.box:hover {
+  border-color: var(--mf-border);
+  box-shadow: 0 0 12px var(--mf-glow);
+}
+
+.box .label {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--mf-text-muted);
+  display: block;
+  margin-bottom: 4px;
+  font-family: monospace;
+}
+
+.box-1 { background: var(--mf-surface);   border-color: #1E5028; }
+.box-2 { background: var(--mf-surface-2); border-color: #266030; }
+.box-3 { background: var(--mf-surface-3); border-color: #2E7038; }
+.box-4 { background: var(--mf-surface-4); border-color: #368040; }
+
+/* ── Shared controls ─────────────────────────────────────────────────── */
+.controls {
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 9px 22px;
+  border: 1px solid var(--mf-primary);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--mf-primary);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.1s;
+}
+
+.btn:hover {
+  background: rgba(82, 217, 115, 0.1);
+  box-shadow: 0 0 16px rgba(82, 217, 115, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
