@@ -13,6 +13,14 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
+    "paths": {
+      "ng-nanymation": [
+        "./dist/ng-nanymation"
+      ],
+      "lib-ui": [
+        "./dist/lib-ui"
+      ]
+    },
     "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
