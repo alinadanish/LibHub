@@ -1,11 +1,44 @@
 <div class="shell">
-    <nav>
-        <span class="nav-brand">ng-nanymation</span>
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-        <a routerLink="/about" routerLinkActive="active">About</a>
-        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-    </nav>
+
+    <aside class="sidebar">
+        <div class="brand">ng-<span>nanymation</span></div>
+
+        <nav class="nav-section">
+            <a routerLink="/"          routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+            <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+            <a routerLink="/about"     routerLinkActive="active">About</a>
+        </nav>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="nav-section">
+            <div class="nav-category">Enter / Leave</div>
+            <a routerLink="/demo/fade"   routerLinkActive="active">Fade</a>
+            <a routerLink="/demo/slide"  routerLinkActive="active">Slide</a>
+            <a routerLink="/demo/scale"  routerLinkActive="active">Scale</a>
+            <a routerLink="/demo/rotate" routerLinkActive="active">Rotate</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-category">Attention</div>
+            <a routerLink="/demo/shake" routerLinkActive="active">Shake</a>
+        </div>
+
+        <div class="nav-section">
+            <div class="nav-category">Auto</div>
+            <a routerLink="/demo/stagger" routerLinkActive="active">Stagger</a>
+            <a routerLink="/demo/typewriter" routerLinkActive="active">Typewriter</a>
+            <a routerLink="/demo/count-up" routerLinkActive="active">Count Up</a>
+        </div>
+
+        <div class="theme-switcher">
+            <button class="theme-btn" [class.active]="theme === 'forest'" (click)="setTheme('forest')">Forest</button>
+            <button class="theme-btn" [class.active]="theme === 'ocean'"  (click)="setTheme('ocean')">Ocean</button>
+        </div>
+    </aside>
+
     <div class="outlet-wrapper" [@routeSlide]="getState(outlet)">
-        <router-outlet #outlet="outlet"/>  <!-- creates a template reference variable named outlet, typed as RouterOutlet -->
+        <router-outlet #outlet="outlet"/>
     </div>
+
 </div>

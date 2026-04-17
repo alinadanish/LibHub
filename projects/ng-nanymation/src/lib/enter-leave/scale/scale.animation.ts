@@ -1,5 +1,5 @@
 import { AnimationMetadata, animate, style } from '@angular/animations';
-import { AnimationConfig } from '../models/animation-config.model';
+import { AnimationConfig } from '../../models/animation-config.model';
 
 export function scaleInAnimation(
     config: AnimationConfig,

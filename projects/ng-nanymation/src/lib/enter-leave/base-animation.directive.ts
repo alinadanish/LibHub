@@ -21,7 +21,7 @@ export abstract class BaseAnimationDirective implements OnInit, OnChanges, OnDes
 
     protected readonly el      = inject(ElementRef);
     protected readonly builder = inject(AnimationBuilder);
-    private player: AnimationPlayer | null = null;
+    protected player: AnimationPlayer | null = null;
 
     ngOnInit(): void {
         if (!this.visible) {

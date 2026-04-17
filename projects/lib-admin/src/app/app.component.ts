@@ -11,10 +11,23 @@ import { routeSlideAnimation } from 'ng-nanymation';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  //Step 3 — add a method to read the animation state from the activated route's data
-  //outlet.isActivated — true if a route is currently loaded, false on first load
-  //outlet.activatedRouteData['animation'] — reads the data property you set on each route in app.routes.ts:
-  getState(outlet: RouterOutlet): string { 
+  theme = localStorage.getItem('theme') ?? 'forest';
+
+  constructor() {
+    this.applyTheme(this.theme);
+  }
+
+  setTheme(t: string): void {
+    this.theme = t;
+    localStorage.setItem('theme', t);
+    this.applyTheme(t);
+  }
+
+  private applyTheme(t: string): void {
+    document.documentElement.setAttribute('data-theme', t === 'ocean' ? 'ocean' : '');
+  }
+
+  getState(outlet: RouterOutlet): string {
     return outlet.isActivated ? outlet.activatedRouteData['animation'] : '';
   }
 }

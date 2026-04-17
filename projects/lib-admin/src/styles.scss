@@ -1,19 +1,45 @@
-/* ── Mystical Forest Theme Variables ─────────────────────────────────── */
+/* ── Mystical Forest (default) ───────────────────────────────────────── */
 :root {
-  --mf-bg:            #0A1A0E;   /* deep forest floor — almost black       */
-  --mf-surface:       #0F2414;   /* dark moss surface                      */
-  --mf-surface-2:     #143019;   /* deeper moss                            */
-  --mf-surface-3:     #183D1E;   /* forest undergrowth                     */
-  --mf-surface-4:     #1C4A24;   /* dense canopy shadow                    */
-  --mf-border:        #2D7A3A;   /* forest green border                    */
-  --mf-border-light:  #1A4020;   /* subtle dark border                     */
-  --mf-primary:       #52D973;   /* bioluminescent glow — main accent      */
-  --mf-primary-hover: #3DC45E;   /* darker glow on hover                   */
-  --mf-nav:           #060E08;   /* dark bark — almost black               */
-  --mf-text:          #B8EEC0;   /* pale moonlit leaves                    */
-  --mf-text-muted:    #5A8E62;   /* muted forest green                     */
-  --mf-shadow:        rgba(0, 60, 20, 0.5);
-  --mf-glow:          rgba(82, 217, 115, 0.08);
+  --mf-bg:              #0A1A0E;
+  --mf-surface:         #0F2414;
+  --mf-surface-2:       #143019;
+  --mf-surface-3:       #183D1E;
+  --mf-surface-4:       #1C4A24;
+  --mf-border:          #2D7A3A;
+  --mf-border-light:    #1A4020;
+  --mf-primary:         #52D973;
+  --mf-primary-hover:   #3DC45E;
+  --mf-nav:             #060E08;
+  --mf-text:            #B8EEC0;
+  --mf-text-muted:      #5A8E62;
+  --mf-shadow:          rgba(0, 60, 20, 0.5);
+  --mf-glow:            rgba(82, 217, 115, 0.08);
+  --mf-primary-subtle:  rgba(82, 217, 115, 0.08);
+  --mf-primary-accent:  rgba(82, 217, 115, 0.12);
+  --mf-primary-glow:    rgba(82, 217, 115, 0.25);
+  --mf-brand-shadow:    rgba(82, 217, 115, 0.5);
+}
+
+/* ── Midnight Ocean ──────────────────────────────────────────────────── */
+[data-theme="ocean"] {
+  --mf-bg:              #050D1A;
+  --mf-surface:         #0A1628;
+  --mf-surface-2:       #0D1D32;
+  --mf-surface-3:       #10233C;
+  --mf-surface-4:       #142A46;
+  --mf-border:          #1E5080;
+  --mf-border-light:    #0F2840;
+  --mf-primary:         #38BDF8;
+  --mf-primary-hover:   #22A8E0;
+  --mf-nav:             #020810;
+  --mf-text:            #BAE6FD;
+  --mf-text-muted:      #4A7A9B;
+  --mf-shadow:          rgba(0, 30, 80, 0.5);
+  --mf-glow:            rgba(56, 189, 248, 0.08);
+  --mf-primary-subtle:  rgba(56, 189, 248, 0.08);
+  --mf-primary-accent:  rgba(56, 189, 248, 0.12);
+  --mf-primary-glow:    rgba(56, 189, 248, 0.25);
+  --mf-brand-shadow:    rgba(56, 189, 248, 0.5);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -70,14 +96,16 @@ body {
   font-family: monospace;
 }
 
-.box-1 { background: var(--mf-surface);   border-color: #1E5028; }
-.box-2 { background: var(--mf-surface-2); border-color: #266030; }
-.box-3 { background: var(--mf-surface-3); border-color: #2E7038; }
-.box-4 { background: var(--mf-surface-4); border-color: #368040; }
+.box-1 { background: var(--mf-surface); }
+.box-2 { background: var(--mf-surface-2); }
+.box-3 { background: var(--mf-surface-3); }
+.box-4 { background: var(--mf-surface-4); }
 
 /* ── Shared controls ─────────────────────────────────────────────────── */
 .controls {
   margin-bottom: 20px;
+  display: flex;
+  gap: 8px;
 }
 
 .btn {
@@ -94,8 +122,8 @@ body {
 }
 
 .btn:hover {
-  background: rgba(82, 217, 115, 0.1);
-  box-shadow: 0 0 16px rgba(82, 217, 115, 0.25);
+  background: var(--mf-primary-subtle);
+  box-shadow: 0 0 16px var(--mf-primary-glow);
   transform: translateY(-1px);
 }
 
