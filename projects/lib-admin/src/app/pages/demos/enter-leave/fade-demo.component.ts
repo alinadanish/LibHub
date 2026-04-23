@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { FadeDirective } from 'ng-nanymation';
+import { NgNanymationModule } from 'ng-nanymation';
 
 @Component({
   standalone: true,
-  imports: [FadeDirective],
+  imports: [NgNanymationModule],
   template: `
     <div class="page">
       <h2>Fade</h2>

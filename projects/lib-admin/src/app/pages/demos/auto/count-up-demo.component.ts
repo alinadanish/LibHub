@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { CountUpDirective } from 'ng-nanymation';
+import { NgNanymationModule } from 'ng-nanymation';
 
 @Component({
     standalone: true,
-    imports: [CountUpDirective],
+    imports: [NgNanymationModule],
     styles: [`
         .grid   { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
         .card   { background: var(--mf-surface); border: 1px solid var(--mf-border-light);

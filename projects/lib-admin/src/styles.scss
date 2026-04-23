@@ -20,6 +20,50 @@
   --mf-brand-shadow:    rgba(82, 217, 115, 0.5);
 }
 
+/* ── Solar Amber ─────────────────────────────────────────────────────── */
+[data-theme="amber"] {
+  --mf-bg:              #0C0C0C;
+  --mf-surface:         #161616;
+  --mf-surface-2:       #1E1E1E;
+  --mf-surface-3:       #262626;
+  --mf-surface-4:       #2E2E2E;
+  --mf-border:          #F5C200;
+  --mf-border-light:    #2A2A2A;
+  --mf-primary:         #F5C200;
+  --mf-primary-hover:   #E0B000;
+  --mf-nav:             #080808;
+  --mf-text:            #F0F0F0;
+  --mf-text-muted:      #888888;
+  --mf-shadow:          rgba(0, 0, 0, 0.6);
+  --mf-glow:            rgba(245, 194, 0, 0.08);
+  --mf-primary-subtle:  rgba(245, 194, 0, 0.08);
+  --mf-primary-accent:  rgba(245, 194, 0, 0.14);
+  --mf-primary-glow:    rgba(245, 194, 0, 0.3);
+  --mf-brand-shadow:    rgba(245, 194, 0, 0.5);
+}
+
+/* ── Solar Amber Light ───────────────────────────────────────────────── */
+[data-theme="amber-light"] {
+  --mf-bg:              #F5F5F5;
+  --mf-surface:         #FFFFFF;
+  --mf-surface-2:       #F0F0F0;
+  --mf-surface-3:       #E8E8E8;
+  --mf-surface-4:       #E0E0E0;
+  --mf-border:          #E6B800;
+  --mf-border-light:    #DCDCDC;
+  --mf-primary:         #E6B800;
+  --mf-primary-hover:   #CC9F00;
+  --mf-nav:             #1A1A1A;
+  --mf-text:            #1A1A1A;
+  --mf-text-muted:      #777777;
+  --mf-shadow:          rgba(0, 0, 0, 0.08);
+  --mf-glow:            rgba(230, 184, 0, 0.12);
+  --mf-primary-subtle:  rgba(230, 184, 0, 0.10);
+  --mf-primary-accent:  rgba(230, 184, 0, 0.18);
+  --mf-primary-glow:    rgba(230, 184, 0, 0.3);
+  --mf-brand-shadow:    rgba(230, 184, 0, 0.4);
+}
+
 /* ── Midnight Ocean ──────────────────────────────────────────────────── */
 [data-theme="ocean"] {
   --mf-bg:              #050D1A;

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { SlideDirective } from 'ng-nanymation';
+import { NgNanymationModule } from 'ng-nanymation';
 
 @Component({
   standalone: true,
-  imports: [SlideDirective],
+  imports: [NgNanymationModule],
   template: `
     <div class="page">
       <h2>Slide</h2>

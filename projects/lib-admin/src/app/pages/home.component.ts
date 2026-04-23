@@ -42,7 +42,7 @@ import { Component } from '@angular/core';
 
             <div class="stats">
                 <div class="stat">
-                    <span class="stat-value">6</span>
+                    <span class="stat-value">8</span>
                     <span class="stat-label">Directives</span>
                 </div>
                 <div class="stat">
@@ -50,7 +50,7 @@ import { Component } from '@angular/core';
                     <span class="stat-label">Categories</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-value">v0.0.1</span>
+                    <span class="stat-value">v0.0.2</span>
                     <span class="stat-label">Version</span>
                 </div>
             </div>

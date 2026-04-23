@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { TypewriterDirective } from 'ng-nanymation';
+import { NgNanymationModule } from 'ng-nanymation';
 
 @Component({
     standalone: true,
-    imports: [TypewriterDirective],
+    imports: [NgNanymationModule],
     template: `
         <div class="page">
             <h2>Typewriter</h2>

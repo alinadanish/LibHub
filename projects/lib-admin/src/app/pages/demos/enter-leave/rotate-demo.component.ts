@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { RotateDirective } from 'ng-nanymation';
+import { NgNanymationModule } from 'ng-nanymation';
 
 @Component({
   standalone: true,
-  imports: [RotateDirective],
+  imports: [NgNanymationModule],
   template: `
     <div class="page">
       <h2>Rotate</h2>

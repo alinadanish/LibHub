@@ -25,10 +25,10 @@ import { Component } from '@angular/core';
       <h2>Dashboard</h2>
       <p class="subtitle">A summary of what's inside ng-nanymation.</p>
       <div class="stats">
-        <div class="stat"><span class="value">5</span><span class="label">Directives</span></div>
-        <div class="stat"><span class="value">6</span><span class="label">Animations</span></div>
+        <div class="stat"><span class="value">8</span><span class="label">Directives</span></div>
+        <div class="stat"><span class="value">3</span><span class="label">Categories</span></div>
         <div class="stat"><span class="value">3</span><span class="label">Models</span></div>
-        <div class="stat"><span class="value">v0.0.1</span><span class="label">Version</span></div>
+        <div class="stat"><span class="value">v0.0.2</span><span class="label">Version</span></div>
       </div>
     </div>
   `,

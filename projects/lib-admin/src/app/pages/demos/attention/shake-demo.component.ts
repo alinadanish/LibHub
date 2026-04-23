@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ShakeDirective } from 'ng-nanymation';
+import { NgNanymationModule } from 'ng-nanymation';
 
 @Component({
     standalone: true,
-    imports: [ShakeDirective],
+    imports: [NgNanymationModule],
     template: `
         <div class="page">
             <h2>Shake</h2>

@@ -1,10 +1,6 @@
-import { AfterViewInit, Directive, ElementRef, Input, OnDestroy, inject } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, Input, OnDestroy } from '@angular/core';
 
-@Directive({ 
-    selector: '[ngNanyCountUp]', 
-    standalone: true 
-})
-
+@Directive({ selector: '[ngNanyCountUp]', standalone: false })
 export class CountUpDirective implements AfterViewInit, OnDestroy {
     @Input() to = 0;  // the number to count up to — required, set via template
     @Input() from = 0;  // where counting starts
@@ -12,7 +8,8 @@ export class CountUpDirective implements AfterViewInit, OnDestroy {
     @Input() decimals  = 0;  // how many decimal places to show. default 0 = whole numbers
     @Input() suffix    = ''; // optional suffix shown after the number e.g. '%' or 'k'
     @Input() prefix    = '';  // optional prefix shown before the number e.g. '$'
-    private readonly el = inject(ElementRef);
+
+    constructor(private readonly el: ElementRef) {}
     private intervalId: ReturnType<typeof setInterval> | null = null;
 
     ngAfterViewInit(): void {

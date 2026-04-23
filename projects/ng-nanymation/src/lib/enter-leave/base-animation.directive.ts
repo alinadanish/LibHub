@@ -6,7 +6,6 @@ import {
     OnDestroy,
     OnInit,
     SimpleChanges,
-    inject,
 } from '@angular/core';
 import { AnimationBuilder, AnimationMetadata, AnimationPlayer } from '@angular/animations';
 import { AnimationConfig, DEFAULT_ANIMATION_CONFIG } from '../models/animation-config.model';
@@ -18,10 +17,12 @@ export abstract class BaseAnimationDirective implements OnInit, OnChanges, OnDes
     @Input() easing   = DEFAULT_ANIMATION_CONFIG.easing;
 
     protected visible = true;
-
-    protected readonly el      = inject(ElementRef);
-    protected readonly builder = inject(AnimationBuilder);
     protected player: AnimationPlayer | null = null;
+
+    constructor(
+        protected readonly el: ElementRef,
+        protected readonly builder: AnimationBuilder,
+    ) {}
 
     ngOnInit(): void {
         if (!this.visible) {

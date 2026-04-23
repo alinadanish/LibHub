@@ -1,14 +1,11 @@
-import { AfterViewInit, Directive, ElementRef, inject, Input, OnDestroy } from "@angular/core";
+import { AfterViewInit, Directive, ElementRef, Input, OnDestroy } from "@angular/core";
 
-@Directive({
-    selector: '[ngNanyTypewriter]',
-    standalone: true,
-})
-
+@Directive({ selector: '[ngNanyTypewriter]', standalone: false })
 export class TypewriterDirective implements AfterViewInit, OnDestroy   {
     @Input() speed = 0; // ms between each character — lower = faster typing
     @Input() showCursor = true; // Whether to show the blinking cursor at the end of the text
-    private readonly el = inject(ElementRef);
+
+    constructor(private readonly el: ElementRef) {}
     private intervalId : ReturnType<typeof setInterval> | null = null; //holds interval so we can clear it on destroy
     private cursor: HTMLSpanElement | null = null; // Reference to the cursor element so we can insert text before it
 

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { StaggerDirective } from 'ng-nanymation';
+import { NgNanymationModule } from 'ng-nanymation';
 
 @Component({
   standalone: true,
-  imports: [StaggerDirective],
+  imports: [NgNanymationModule],
   styles: [`
     .stagger-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .stagger-list li {

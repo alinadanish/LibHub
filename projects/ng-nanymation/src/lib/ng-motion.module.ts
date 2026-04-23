@@ -20,7 +20,7 @@ const DIRECTIVES = [
 ];
 
 @NgModule({
-    imports: DIRECTIVES,
+    declarations: DIRECTIVES,
     exports: DIRECTIVES,
 })
 export class NgNanymationModule {}

@@ -29,7 +29,7 @@ import { Component } from '@angular/core';
         <li>Fully configurable duration, delay, and easing</li>
         <li>Tree-shakable — import only what you use</li>
         <li>Built on Angular Animations API</li>
-        <li>Standalone directive support — Angular 17+</li>
+        <li>NgModule-based — compatible with Angular 11 and above</li>
         <li>Extends easily with BaseAnimationDirective</li>
       </ul>
     </div>

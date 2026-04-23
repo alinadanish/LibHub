@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { ScaleDirective } from 'ng-nanymation';
+import { NgNanymationModule } from 'ng-nanymation';
 
 @Component({
   standalone: true,
-  imports: [ScaleDirective],
+  imports: [NgNanymationModule],
   template: `
     <div class="page">
       <h2>Scale</h2>

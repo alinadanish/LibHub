@@ -1,13 +1,21 @@
-{
-  "name": "ng-nanymation",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/animations": "^19.2.0",
-    "@angular/common": "^19.2.0",
-    "@angular/core": "^19.2.0"
-  },
-  "dependencies": {
-    "tslib": "^2.3.0"
-  },
-  "sideEffects": false
-}
+  {
+    "name": "ng-nanymation",
+    "version": "0.0.3",
+    "description": "A lightweight Angular animation library built with directives. Zero-config, tree-shakable, fully configurable.",
+    "keywords": ["angular", "animation", "directive", "standalone", "transition"],
+    "author": "alinadanish",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/alinadanish/LibHub"
+    },
+    "peerDependencies": {
+      "@angular/animations": ">=11.0.0",
+      "@angular/common": ">=11.0.0",
+      "@angular/core": ">=11.0.0"
+    },
+    "dependencies": {
+      "tslib": "^2.3.0"
+    },
+    "sideEffects": false
+  }

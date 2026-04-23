@@ -1,63 +1,311 @@
-# NgNanymation
+# ng-nanymation
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+A lightweight Angular animation library built with directives. Zero-config defaults, fully configurable, tree-shakable, and built on the Angular Animations API.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Installation
 
 ```bash
-ng generate component component-name
+npm install ng-nanymation
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Requires **Angular 11 or later**.
 
-```bash
-ng generate --help
+---
+
+## Setup
+
+### 1. Add animations provider
+
+```typescript
+// app.config.ts (standalone app)
+import { provideAnimations } from '@angular/platform-browser/animations';
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideAnimations()]
+};
 ```
 
-## Building
+```typescript
+// app.module.ts (NgModule app)
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-To build the library, run:
-
-```bash
-ng build ng-nanymation
+@NgModule({
+  imports: [BrowserAnimationsModule]
+})
+export class AppModule {}
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+### 2. Import NgNanymationModule
 
-### Publishing the Library
+**Standalone component:**
+```typescript
+import { NgNanymationModule } from 'ng-nanymation';
 
-Once the project is built, you can publish your library by following these steps:
-
-1. Navigate to the `dist` directory:
-   ```bash
-   cd dist/ng-nanymation
-   ```
-
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+@Component({
+  standalone: true,
+  imports: [NgNanymationModule],
+})
+export class MyComponent {}
 ```
 
-## Running end-to-end tests
+**NgModule app:**
+```typescript
+import { NgNanymationModule } from 'ng-nanymation';
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+@NgModule({
+  imports: [NgNanymationModule]
+})
+export class AppModule {}
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## Animation Categories
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+ng-nanymation has three categories of directives, each with a different usage pattern.
+
+---
+
+## Category 1 — Enter / Leave
+
+Animates in when the element becomes visible, out when it hides. Controlled by a boolean input.
+
+```html
+<div ngNanyFade [ngNanyFadeVisible]="visible"></div>
+<button (click)="visible = !visible">Toggle</button>
+```
+
+### `ngNanyFade`
+Animates opacity in and out.
+
+| Input | Type | Default | Description |
+|---|---|---|---|
+| `ngNanyFadeVisible` | `boolean` | `true` | Show or hide the element |
+| `duration` | `number` | `300` | Animation duration in ms |
+| `delay` | `number` | `0` | Delay before animation starts in ms |
+| `easing` | `string` | `ease-in-out` | CSS easing function |
+
+```html
+<div ngNanyFade [ngNanyFadeVisible]="visible" [duration]="500" [easing]="'ease-out'">
+  Hello
+</div>
+```
+
+---
+
+### `ngNanySlide`
+Combines translate and opacity. Supports 4 directions.
+
+| Input | Type | Default | Description |
+|---|---|---|---|
+| `ngNanySlideVisible` | `boolean` | `true` | Show or hide the element |
+| `enterFrom` | `'up' \| 'down' \| 'left' \| 'right'` | `'up'` | Direction to slide in from |
+| `leaveTo` | `'up' \| 'down' \| 'left' \| 'right'` | `'down'` | Direction to slide out to |
+| `duration` | `number` | `300` | Animation duration in ms |
+| `delay` | `number` | `0` | Delay in ms |
+| `easing` | `string` | `ease-in-out` | CSS easing function |
+
+```html
+<div ngNanySlide [ngNanySlideVisible]="visible" enterFrom="left" leaveTo="left">
+  Hello
+</div>
+```
+
+---
+
+### `ngNanyScale`
+Animates transform scale with opacity.
+
+| Input | Type | Default | Description |
+|---|---|---|---|
+| `ngNanyScaleVisible` | `boolean` | `true` | Show or hide the element |
+| `fromScale` | `number` | `0.8` | Starting/ending scale factor |
+| `duration` | `number` | `300` | Animation duration in ms |
+| `delay` | `number` | `0` | Delay in ms |
+| `easing` | `string` | `ease-in-out` | CSS easing function |
+
+```html
+<div ngNanyScale [ngNanyScaleVisible]="visible" [fromScale]="0.5">
+  Hello
+</div>
+```
+
+---
+
+### `ngNanyRotate`
+Animates rotation with opacity.
+
+| Input | Type | Default | Description |
+|---|---|---|---|
+| `ngNanyRotateVisible` | `boolean` | `true` | Show or hide the element |
+| `degrees` | `number` | `180` | Degrees to rotate from on enter / to on leave |
+| `duration` | `number` | `300` | Animation duration in ms |
+| `delay` | `number` | `0` | Delay in ms |
+| `easing` | `string` | `ease-in-out` | CSS easing function |
+
+```html
+<div ngNanyRotate [ngNanyRotateVisible]="visible" [degrees]="90">
+  Hello
+</div>
+```
+
+---
+
+## Category 2 — Attention
+
+Element stays in the DOM. Animation plays on demand by incrementing a trigger — ideal for alerts, errors, and nudges.
+
+```typescript
+trigger = 0;
+```
+
+```html
+<div ngNanyShake [ngNanyShakeTrigger]="trigger">Invalid input</div>
+<button (click)="trigger++">Shake</button>
+```
+
+### `ngNanyShake`
+Rapid left-right vibration with decreasing amplitude.
+
+| Input | Type | Default | Description |
+|---|---|---|---|
+| `ngNanyShakeTrigger` | `number` | — | Increment to play the animation |
+| `duration` | `number` | `300` | Animation duration in ms |
+| `delay` | `number` | `0` | Delay in ms |
+| `easing` | `string` | `ease-in-out` | CSS easing function |
+
+```html
+<div ngNanyShake [ngNanyShakeTrigger]="trigger" [duration]="600">
+  Shake me
+</div>
+```
+
+---
+
+## Category 3 — Auto
+
+Plays automatically the moment the element enters the DOM. No input binding needed — just add the directive.
+
+### `ngNanyStagger`
+Animates each child element in sequence with an increasing delay.
+
+| Input | Type | Default | Description |
+|---|---|---|---|
+| `staggerDelay` | `number` | `80` | Additional delay between each child in ms |
+| `duration` | `number` | `300` | Animation duration per child in ms |
+| `easing` | `string` | `ease-in-out` | CSS easing function |
+
+```html
+<ul ngNanyStagger [staggerDelay]="100">
+  <li>First</li>
+  <li>Second</li>
+  <li>Third</li>
+</ul>
+```
+
+---
+
+### `ngNanyTypewriter`
+Reveals text character by character on init.
+
+| Input | Type | Default | Description |
+|---|---|---|---|
+| `speed` | `number` | `50` | Milliseconds between each character |
+| `showCursor` | `boolean` | `true` | Show blinking cursor while typing |
+
+```html
+<p ngNanyTypewriter [speed]="60">Hello, world!</p>
+```
+
+---
+
+### `ngNanyCountUp`
+Animates a number from a start value to a target on init.
+
+| Input | Type | Default | Description |
+|---|---|---|---|
+| `to` | `number` | `0` | Target number to count up to |
+| `from` | `number` | `0` | Starting number |
+| `duration` | `number` | `2000` | Total animation duration in ms |
+| `decimals` | `number` | `0` | Decimal places to display |
+| `prefix` | `string` | `''` | Text before the number e.g. `$` |
+| `suffix` | `string` | `''` | Text after the number e.g. `%` |
+
+```html
+<span ngNanyCountUp [to]="9800" [duration]="2000" prefix="$"></span>
+<span ngNanyCountUp [to]="98.6" [decimals]="1" suffix="%"></span>
+```
+
+---
+
+## Route Transitions
+
+ng-nanymation includes two pre-built route transition animations.
+
+```typescript
+import { routeFadeAnimation, routeSlideAnimation } from 'ng-nanymation';
+
+@Component({
+  animations: [routeSlideAnimation(300)]
+})
+export class AppComponent {
+  getState(outlet: RouterOutlet) {
+    return outlet.isActivated ? outlet.activatedRouteData['animation'] : '';
+  }
+}
+```
+
+```html
+<div [@routeSlide]="getState(outlet)">
+  <router-outlet #outlet="outlet"/>
+</div>
+```
+
+---
+
+## Building Custom Directives
+
+ng-nanymation exports its base classes so you can build your own directives.
+
+**Enter / Leave custom directive:**
+```typescript
+import { Directive, ElementRef, Input } from '@angular/core';
+import { AnimationBuilder, AnimationMetadata } from '@angular/animations';
+import { BaseAnimationDirective } from 'ng-nanymation';
+
+@Directive({ selector: '[myFade]', standalone: false })
+export class MyFadeDirective extends BaseAnimationDirective {
+  @Input('myFadeVisible') override visible = true;
+
+  constructor(el: ElementRef, builder: AnimationBuilder) { super(el, builder); }
+
+  protected getEnterSteps(): AnimationMetadata[] { return []; }
+  protected getLeaveSteps(): AnimationMetadata[] { return []; }
+}
+```
+
+**Attention custom directive:**
+```typescript
+import { Directive, ElementRef, Input } from '@angular/core';
+import { AnimationBuilder, AnimationMetadata } from '@angular/animations';
+import { BaseAttentionDirective } from 'ng-nanymation';
+
+@Directive({ selector: '[myShake]', standalone: false })
+export class MyShakeDirective extends BaseAttentionDirective {
+  @Input('myShakeTrigger') set trigger(val: number) {
+    if (val > 0) this.play();
+  }
+
+  constructor(el: ElementRef, builder: AnimationBuilder) { super(el, builder); }
+
+  protected getSteps(): AnimationMetadata[] { return []; }
+}
+```
+
+Don't forget to declare your custom directive in an NgModule and export it.
+
+---
+
+## License
+
+MIT

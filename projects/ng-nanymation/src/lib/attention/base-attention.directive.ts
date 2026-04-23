@@ -1,6 +1,5 @@
-import { Directive, Input, OnDestroy, inject } from '@angular/core';
+import { Directive, ElementRef, Input, OnDestroy } from '@angular/core';
 import { AnimationBuilder, AnimationMetadata, AnimationPlayer } from '@angular/animations';
-import { ElementRef } from '@angular/core';
 import { AnimationConfig, DEFAULT_ANIMATION_CONFIG } from '../models/animation-config.model';
 
 /**
@@ -17,9 +16,12 @@ export abstract class BaseAttentionDirective implements OnDestroy {
     @Input() delay    = DEFAULT_ANIMATION_CONFIG.delay;
     @Input() easing   = DEFAULT_ANIMATION_CONFIG.easing;
 
-    protected readonly el      = inject(ElementRef);
-    protected readonly builder = inject(AnimationBuilder);
-    private   player: AnimationPlayer | null = null;
+    private player: AnimationPlayer | null = null;
+
+    constructor(
+        protected readonly el: ElementRef,
+        protected readonly builder: AnimationBuilder,
+    ) {}
 
     protected get config(): AnimationConfig {
         return { duration: this.duration, delay: this.delay, easing: this.easing };

@@ -24,7 +24,7 @@ export class AppComponent {
   }
 
   private applyTheme(t: string): void {
-    document.documentElement.setAttribute('data-theme', t === 'ocean' ? 'ocean' : '');
+    document.documentElement.setAttribute('data-theme', t !== 'forest' ? t : '');
   }
 
   getState(outlet: RouterOutlet): string {
